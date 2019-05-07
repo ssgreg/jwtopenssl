@@ -1,7 +1,7 @@
 package jwtopenssl
 
 import (
-	"github.com/ssgreg/jwt-go"
+	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/ssgreg/openssl"
 )
 
