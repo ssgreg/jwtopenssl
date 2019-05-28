@@ -13,6 +13,7 @@ type signingMethodRSA struct {
 // Specific instances for RS256 and company,
 var (
 	SigningMethodRS256 jwt.SigningMethod
+	SigningMethodRS384 jwt.SigningMethod
 	SigningMethodRS512 jwt.SigningMethod
 )
 
@@ -21,6 +22,12 @@ func init() {
 	SigningMethodRS256 = &signingMethodRSA{"RS256", openssl.SHA256_Method}
 	jwt.RegisterSigningMethod(SigningMethodRS256.Alg(), func() jwt.SigningMethod {
 		return SigningMethodRS256
+	})
+
+	// RS384
+	SigningMethodRS384 = &signingMethodRSA{"RS384", openssl.SHA384_Method}
+	jwt.RegisterSigningMethod(SigningMethodRS384.Alg(), func() jwt.SigningMethod {
+		return SigningMethodRS384
 	})
 
 	// RS512
